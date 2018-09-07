@@ -24,8 +24,8 @@ class PlayerDDPG(player11.Player11, threading.Thread):
         # Instanciate reinforcement learning agent which contains Actor/Critic DNN.
         self.num_states = 6
         self.num_actions = 5
-        self.actions_max = [3, 100, 180, 100, 180]
-        self.actions_min = [0, 0, -180, 0, -180]
+        self.actions_max = [3.0, 100.0, 180.0, 100.0, 180.0]
+        self.actions_min = [0.0, 0.0, -180.0, 0.0, -180.0]
 
         self.agent = DDPGAgent(self.num_states, self.num_actions, self.actions_max, self.actions_min)
         # Exploration noise generator which uses Ornstein-Uhlenbeck process.
