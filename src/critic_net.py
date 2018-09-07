@@ -21,7 +21,6 @@ class CriticNet:
 
         with self.graph.as_default():
             # こいつを保存する
-            saver = tf.train.Saver()
             self.sess = tf.Session()
 
             # Learned network

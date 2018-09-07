@@ -19,7 +19,6 @@ class ActorNet:
         self.graph = tf.Graph()
 
         with self.graph.as_default():
-            saver = tf.train.Saver()
             # こいつを保存する
             self.sess = tf.Session()
 
