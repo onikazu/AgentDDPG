@@ -27,7 +27,7 @@ class PlayerDDPG(player11.Player11, threading.Thread):
         self.actions_max = [3, 100, 180, 100, 180]
         self.actions_min = [0, 0, -180, 0, -180]
 
-        self.agent = DDPGAgent(self.num_actions, self.num_states, self.actions_max, self.actions_min)
+        self.agent = DDPGAgent(self.num_states, self.num_actions, self.actions_max, self.actions_min)
         # Exploration noise generator which uses Ornstein-Uhlenbeck process.
         self.noise = OUNoise(len(self.actions))
 

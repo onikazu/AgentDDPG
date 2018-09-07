@@ -71,9 +71,11 @@ class CriticNet:
             ])
 
     def __create_graph(self):
+        # ニューロンの数
         state_input = tf.placeholder(tf.float32, [None, self.num_states])
         action_input = tf.placeholder(tf.float32, [None, self.num_actions])
 
+        # 重み
         W1 = tf.Variable(tf.truncated_normal([self.num_states, N_HIDDEN_1], stddev=0.01))
         B1 = tf.Variable(tf.constant(0.03, shape=[N_HIDDEN_1]))
         state_W2 = tf.Variable(tf.truncated_normal([N_HIDDEN_1, N_HIDDEN_2], stddev=0.01))
