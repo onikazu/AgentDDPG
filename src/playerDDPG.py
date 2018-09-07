@@ -107,12 +107,13 @@ class PlayerDDPG(player11.Player11, threading.Thread):
                     "(move " + str(self.m_dKickOffX) + " " + str(self.m_dKickOffY) + ")"
                 self.m_strCommand = command
         # (コマンド生成)===================
-        if self.actions[0] < 1:
-            self.m_strCommand = "(dash {})".format(self.actions[1])
-        elif self.actions[0] < 2:
-            self.m_strCommand = "(turn {})".format(self.actions[2])
-        elif self.actions[0] <= 3:
-            self.m_strCommand = "(kick {} {})".format(self.actions[3], self.actions[4])
+        else:
+            if self.actions[0] < 1:
+                self.m_strCommand = "(dash {})".format(self.actions[1])
+            elif self.actions[0] < 2:
+                self.m_strCommand = "(turn {})".format(self.actions[2])
+            elif self.actions[0] <= 3:
+                self.m_strCommand = "(kick {} {})".format(self.actions[3], self.actions[4])
         # ===============================
 
     def check_episode_end(self):
