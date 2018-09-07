@@ -122,7 +122,7 @@ class PlayerDDPG(player11.Player11, threading.Thread):
 
 if __name__ == "__main__":
     plays = []
-    for i in range(22):
+    for i in range(1):
         p = PlayerDDPG()
         plays.append(p)
         teamname = str(p.__class__.__name__)
