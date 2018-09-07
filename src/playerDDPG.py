@@ -67,8 +67,7 @@ class PlayerDDPG(player11.Player11, threading.Thread):
 
             # ここがいまいちわからない
             self.actions = self.agent.feed_forward_actor(np.reshape(self.states, [1, self.num_states]))
-            for i in range(len(self.actions)):
-                self.actions[i] = self.actions[i] + self.noise
+            self.actions = self.actions + OUNoise(self.num_actions)
             self.play_0()
             self.send(self.m_strCommand)
             if self.m_strPlayMode.startswith("play_on"):
