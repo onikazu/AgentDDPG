@@ -67,7 +67,7 @@ class PlayerDDPG(player11.Player11, threading.Thread):
 
             # ここがいまいちわからない
             self.actions = self.agent.feed_forward_actor(np.reshape(self.states, [1, self.num_states]))
-            self.actions = self.actions + OUNoise(self.num_actions).generate()
+            self.actions = self.actions[0] + OUNoise(self.num_actions).generate()
             self.play_0()
             self.send(self.m_strCommand)
             if self.m_strPlayMode.startswith("play_on"):
@@ -106,11 +106,11 @@ class PlayerDDPG(player11.Player11, threading.Thread):
                     "(move " + str(self.m_dKickOffX) + " " + str(self.m_dKickOffY) + ")"
                 self.m_strCommand = command
         # (コマンド生成)===================
-        if self.actions[0] < 1:
+        if self.actions[0][0] < 1:
             self.m_strCommand = "(dash {})".format(self.actions[1])
-        elif self.actions[0] < 2:
+        elif self.actions[0][0] < 2:
             self.m_strCommand = "(turn {})".format(self.actions[2])
-        elif self.actions[0] <= 3:
+        elif self.actions[0][0] <= 3:
             self.m_strCommand = "(kick {} {})".format(self.actions[3], self.actions[4])
         # ===============================
 
