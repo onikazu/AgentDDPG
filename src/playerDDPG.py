@@ -106,11 +106,11 @@ class PlayerDDPG(player11.Player11, threading.Thread):
                     "(move " + str(self.m_dKickOffX) + " " + str(self.m_dKickOffY) + ")"
                 self.m_strCommand = command
         # (コマンド生成)===================
-        if 0 <= self.actions[0] < 1:
+        if self.actions[0] < 1:
             self.m_strCommand = "(dash {})".format(self.actions[1])
-        if 1 <= self.actions[0] < 2:
+        elif self.actions[0] < 2:
             self.m_strCommand = "(turn {})".format(self.actions[2])
-        if 2 <= self.actions[0] <= 3:
+        elif self.actions[0] <= 3:
             self.m_strCommand = "(kick {} {})".format(self.actions[3], self.actions[4])
         # ===============================
 
