@@ -38,8 +38,8 @@ class CriticNet:
             self.optimizer = tf.train.AdamOptimizer(learning_rate=LEARNING_RATE).minimize(loss)
 
             # Q gradient computation
-            pmax = tf.constant([None, self.action_max], dtype=tf.float32)
-            pmin = tf.constant([None, self.action_min], dtype=tf.float32)
+            pmax = tf.constant(self.action_max, dtype=tf.float32)
+            pmin = tf.constant(self.action_min, dtype=tf.float32)
             uninverted_dQ_da = tf.gradients(self.critic_model, self.action_input)
             self.dQ_da = tf.where(tf.greater(uninverted_dQ_da, tf.zeros([self.num_actions])),
                     tf.multiply(uninverted_dQ_da, tf.div(pmax - self.action_input, pmax - pmin)),
