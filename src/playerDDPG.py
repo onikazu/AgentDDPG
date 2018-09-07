@@ -32,7 +32,8 @@ class PlayerDDPG(player11.Player11, threading.Thread):
         self.noise = OUNoise(self.num_actions)
 
         self.num_this_episode = sys.argv[2]
-        self.step_limit = sys.argv[3]
+        # self.step_limit = sys.argv[3]
+        self.step_limit = 1000
         self.reward_per_episode = 0
         self.reward_per_step = 0
 
