@@ -108,6 +108,7 @@ class PlayerDDPG(player11.Player11, threading.Thread):
                 self.m_strCommand = command
         # (コマンド生成)===================
         else:
+            print(self.actions)
             if self.actions[0] < 1:
                 self.m_strCommand = "(dash {})".format(self.actions[1])
             elif self.actions[0] < 2:
