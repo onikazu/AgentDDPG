@@ -41,7 +41,7 @@ if __name__ == "__main__":
             os.mkdir("./logs")
 
         # クライアントプログラムの実行
-        cmd = "python3 {} {}, {}".format(exe_program, episode, step)
+        cmd = "python3 {} {} {}".format(exe_program, episode, step)
         cliant = subprocess.Popen(cmd.split())
 
         # 学習
